@@ -202,9 +202,16 @@ tr:last-child td{border-bottom:0}
   .plate{height:auto}
   .plate-inner{padding:12px 12px 0}
   .mc-grid{flex-direction:column;flex:none}
-  .mc-map{height:340px;flex:none}
-  .mc-panel{width:100%;max-height:520px}
+  .mc-map{height:62vh;min-height:360px;flex:none}
+  /* the page scrolls as one sheet on a phone; a second inner scroll region traps the thumb */
+  .mc-panel{width:100%;max-height:none;overflow:visible}
   .mc-readout{margin-left:0;width:100%;order:9}
+  /* legend drops to the bottom-left as one compact row so it stops covering the map */
+  /* scoped to .mc-map for specificity: the base .mc-legend rule comes later in the sheet and would re-apply top:8px */
+  .mc-map .mc-legend{top:auto;bottom:26px;left:8px;right:auto;min-width:0;padding:6px 8px;
+    display:flex;flex-wrap:wrap;gap:4px 10px;max-width:calc(100% - 16px)}
+  .mc-map .mc-legend .lg-hd{display:none}
+  .mc-map .mc-legend .lg-row{margin-bottom:0}
 }
 
 /* map controls: vertical stack of square 1px buttons, top-left */
